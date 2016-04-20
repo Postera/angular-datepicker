@@ -107,7 +107,7 @@
   border-radius: 4px;
   border: none;
 }
-[date-picker] .switch {
+[date-picker] .switchHeader {
   width: 145px;
 }
 [date-picker] span {

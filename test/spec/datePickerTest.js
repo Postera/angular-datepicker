@@ -57,7 +57,7 @@ describe('Test date Picker Directive', function(){
     $rootScope.date = moment(new Date(1973, 4, 7));
     var t = '<div date-picker="date"></div>';
     var el = compileAndDigest(t);
-    expect(el.find('.switch').text()).toBe('1973');
+    expect(el.find('.switchHeader').text()).toBe('1973');
   });
 
   describe('next button', function(){
@@ -66,8 +66,8 @@ describe('Test date Picker Directive', function(){
       $rootScope.date = moment(new Date(1973, 4, 7));
       var t = '<div date-picker="date"></div>';
       var el = compileAndDigest(t);
-      el.find('.switch').next().triggerHandler('click');
-      expect(el.find('.switch').text()).toBe('1974');
+      el.find('.switchHeader').next().triggerHandler('click');
+      expect(el.find('.switchHeader').text()).toBe('1974');
     });
 
   });
@@ -78,8 +78,8 @@ describe('Test date Picker Directive', function(){
       $rootScope.date = moment(new Date(1973, 4, 7));
       var t = '<div date-picker="date"></div>';
       var el = compileAndDigest(t);
-      el.find('.switch').parent().children().eq(0).triggerHandler('click');
-      expect(el.find('.switch').text()).toBe('1972');
+      el.find('.switchHeader').parent().children().eq(0).triggerHandler('click');
+      expect(el.find('.switchHeader').text()).toBe('1972');
     });
 
     it('does not moves the view to the previous year if its less than min-date', function(){
@@ -87,8 +87,8 @@ describe('Test date Picker Directive', function(){
       $rootScope.minDate = moment(new Date(1973, 0, 1));
       var t = '<div date-picker="date" min-date="minDate"></div>';
       var el = compileAndDigest(t);
-      el.find('.switch').parent().children().eq(0).triggerHandler('click');
-      expect(el.find('.switch').text()).toBe('1973');
+      el.find('.switchHeader').parent().children().eq(0).triggerHandler('click');
+      expect(el.find('.switchHeader').text()).toBe('1973');
     });
 
   });
@@ -107,7 +107,7 @@ describe('Test date Picker Directive', function(){
       var t = '<div date-picker="date"></div>';
       var el = compileAndDigest(t);
       el.find('table td span:first-child').triggerHandler('click');
-      expect(el.find('.switch').text()).toBe('1973 January');
+      expect(el.find('.switchHeader').text()).toBe('1973 January');
     });
 
     it('clips date if its less than min-date', function(){
@@ -116,7 +116,7 @@ describe('Test date Picker Directive', function(){
       var t = '<div date-picker="date" min-date="minDate"></div>';
       var el = compileAndDigest(t);
       el.find('table td span:first-child').triggerHandler('click');
-      expect(el.find('.switch').text()).toBe('1973 March');
+      expect(el.find('.switchHeader').text()).toBe('1973 March');
     });
 
     it('is set to disabled if its date is less than min-date', function(){
